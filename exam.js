@@ -288,14 +288,60 @@ const Mission1 = (militaryUnit) => {
 console.log(Mission1(militaryUnit));
 
 
-
 const Mission2 = (militaryUnit) => {
-    const allpersonnel = militaryUnit["personnel"].reduce();
-    return allpersonnel;
+    const allpersonnel = militaryUnit["personnel"];
+    return allpersonnel.length;
 }
 
 console.log(Mission2(militaryUnit))
 
+
+
+const Mission3 = (militaryUnit ,NewDeployment) => {
+const cur = militaryUnit.currentDeployment;
+militaryUnit.history.push({eventDescription:cur.mission + " in " + cur.location ,eventDate:  cur.estimatedEndDate, });
+militaryUnit.currentDeployment = NewDeployment;
+console.log(militaryUnit.currentDeployment);
+console.log(militaryUnit.history)
+}
+
+Mission3(militaryUnit, {
+location: "Middle saxsxsa",
+
+mission: "Couasxasxasasions",
+
+startDate: "2024-01-12",
+
+estimatedEndDate: "2024-12-12",
+})
+
+
+const Mission4 = (firearms, militaryUnit) => {
+    const type = firearms.type;
+    const allfirearms = militaryUnit.equipment.firearms;
+    const same = allfirearms.filter(a => a.type == type);
+    if(same.length){
+        same[0].quantity += firearms.quantity;
+    }
+    else{
+        allfirearms.push(firearms);
+    }
+    return militaryUnit.equipment.firearms
+};
+
+
+
+
+  
+console.log(Mission4({
+
+    type: "M16 Rifle",
+
+    quantity: 500,
+
+    status: "Operational",
+
+  }, militaryUnit))
 
 
 
