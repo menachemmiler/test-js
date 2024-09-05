@@ -285,7 +285,7 @@ const Mission1 = (militaryUnit) => {
             phone= ${chief.contact.phone}`;
 }
 
-console.log(Mission1(militaryUnit));
+
 
 
 const Mission2 = (militaryUnit) => {
@@ -293,7 +293,7 @@ const Mission2 = (militaryUnit) => {
     return allpersonnel.length;
 }
 
-console.log(Mission2(militaryUnit))
+
 
 
 
@@ -301,19 +301,10 @@ const Mission3 = (militaryUnit ,NewDeployment) => {
 const cur = militaryUnit.currentDeployment;
 militaryUnit.history.push({eventDescription:cur.mission + " in " + cur.location ,eventDate:  cur.estimatedEndDate, });
 militaryUnit.currentDeployment = NewDeployment;
-console.log(militaryUnit.currentDeployment);
-console.log(militaryUnit.history)
+return militaryUnit;
 }
 
-Mission3(militaryUnit, {
-location: "Middle saxsxsa",
 
-mission: "Couasxasxasasions",
-
-startDate: "2024-01-12",
-
-estimatedEndDate: "2024-12-12",
-})
 
 
 const Mission4 = (firearms, militaryUnit) => {
@@ -333,18 +324,46 @@ const Mission4 = (firearms, militaryUnit) => {
 
 
   
-console.log(Mission4({
-
-    type: "M16 Rifle",
-
-    quantity: 500,
-
-    status: "Operational",
-
-  }, militaryUnit))
 
 
 
+const Mission5 = (militaryUnit) => {
+    const trainingPrograms = militaryUnit.trainingPrograms;
+    let sumTraining = trainingPrograms.reduce((a, b) => {return a.duration + b.duration})
+    return `כמות כלל השבועות בהכשרה ${sumTraining}`;
+}
+
+
+
+//console.log(Mission1(militaryUnit));
+
+//console.log(Mission2(militaryUnit))
+
+console.log(
+Mission3(militaryUnit, {
+    location: "Middle saxsxsa",
+    
+    mission: "Couasxasxasasions",
+    
+    startDate: "2024-01-12",
+    
+    estimatedEndDate: "2024-12-12",
+    })
+)
+
+
+
+// console.log(Mission4({
+
+//     type: "M16 Rifle",
+
+//     quantity: 500,
+
+//     status: "Operational",
+
+//   }, militaryUnit))
+
+// console.log(Mission5(militaryUnit));
 
 
 
@@ -365,10 +384,14 @@ console.log(Mission4({
 
 
 
-//   module.exports = {
-//     Mission1,
-//     Mission2,
-//     Mission3,
-//     Mission4,
-//     Mission5
-// }
+
+
+
+
+  module.exports = {
+    Mission1,
+    Mission2,
+    Mission3,
+    Mission4,
+    Mission5
+}
