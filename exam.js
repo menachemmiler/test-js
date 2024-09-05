@@ -279,21 +279,22 @@ let militaryUnit = {
 
 const Mission1 = (militaryUnit) => {
         const chief = militaryUnit.commandStructure.chiefOfStaff;
-        console.log(`
+        return `
             name= ${chief.name}
             rank= ${chief.rank}
-            phone= ${chief.contact.phone}`);
+            phone= ${chief.contact.phone}`;
 }
 
-Mission1(militaryUnit);
+console.log(Mission1(militaryUnit));
+
 
 
 const Mission2 = (militaryUnit) => {
-    const sumAll = militaryUnit.commandStructure
-
+    const allpersonnel = militaryUnit["personnel"].reduce();
+    return allpersonnel;
 }
 
-Mission2(militaryUnit);
+console.log(Mission2(militaryUnit))
 
 
 
